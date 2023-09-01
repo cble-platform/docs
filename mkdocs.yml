@@ -1,5 +1,5 @@
 site_name: CBLE Docs
-site_url: https://cble-platform.github.io/documentation
+site_url: https://cble-platform.github.io/docs/
 repo_url: https://github.com/cble-platform
 repo_name: cble-platform
 theme:
