@@ -21,5 +21,6 @@ jobs:
           path: .cache
           restore-keys: |
             mkdocs-material-
-      - run: pip install mkdocs-material mkdocs-awesome-pages-plugin
+      - run: apt-get install pngquant
+      - run: pip install mkdocs-material mkdocs-awesome-pages-plugin pillow cairosvg
       - run: mkdocs gh-deploy --force
