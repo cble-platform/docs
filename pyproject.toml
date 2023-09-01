@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "cble-documentation"
+version = "0.1.0"
+description = "The documentation for the Cloud-Based Lab Emulator (CBLE)"
+authors = ["BradHacker <harkerbd@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+mkdocs-material = "^9.2.6"
+mkdocs-awesome-pages-plugin = "^2.9.2"
+pillow = "^10.0.0"
+cairosvg = "^2.7.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
