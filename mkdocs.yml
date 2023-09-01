@@ -1,5 +1,6 @@
 site_name: CBLE Docs
 site_url: https://cble-platform.github.io/docs/
+site_description: Full platform documentation for the Cloud-Based Lab Emulator (CBLE)
 repo_url: https://github.com/cble-platform
 repo_name: cble-platform
 theme:
