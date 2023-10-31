@@ -1,3 +1,9 @@
+---
+hide:
+  - navigation
+  - toc
+---
+
 # Welcome
 
 !!! warning "🚧 Under Construction 🚧"
@@ -5,6 +11,10 @@
     This documentation site is still **heavily** under construction. Please come back later for full documentation.
 
 The Cloud-Based Lab Emulator (or **CBLE** for short) is designed to be a fully-automated self-service virtual lab environment that is cloud provider agnostic. This means whatever your resources, CBLE can scale to be the solution you need.
+
+## Getting Started
+
+- Learn about [Blueprints](./blueprints/)
 
 ## Project Inspiration
 
