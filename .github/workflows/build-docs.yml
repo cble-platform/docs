@@ -1,8 +1,10 @@
-name: ci
+name: Build Docs
 on:
   push:
-    branches:
-      - master
+    branches-ignore:
+      - main
+  pull_request:
+    branches-ignore:
       - main
 permissions:
   contents: write
@@ -23,4 +25,4 @@ jobs:
             mkdocs-material-
       - run: sudo apt install pngquant
       - run: pip install mkdocs-material mkdocs-awesome-pages-plugin pillow cairosvg
-      - run: mkdocs gh-deploy --force
+      - run: mkdocs build
