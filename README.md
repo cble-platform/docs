@@ -1,6 +1,6 @@
 # CBLE Documentation
 
-[![Deploy Docs](https://github.com/cble-platform/docs/actions/workflows/deploy-docs.yml/badge.svg?branch=main)](https://github.com/cble-platform/docs/actions/workflows/deploy-docs.yml)
+[![Deploy Docs](https://github.com/cble-platform/docs/actions/workflows/deploy-docs.yml/badge.svg)](https://github.com/cble-platform/docs/actions/workflows/deploy-docs.yml)
 
 This documentation is built with `mkdocs` and uses [Poetry](https://python-poetry.org/) for dependency management.
 
