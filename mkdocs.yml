@@ -28,7 +28,7 @@ theme:
 
     # Palette toggle for dark mode
     - media: "(prefers-color-scheme: dark)"
-      primary: teal
+      primary: black
       accent: cyan
       scheme: slate
       toggle:
@@ -64,3 +64,5 @@ plugins:
   - search
   - awesome-pages
   - social
+extra_css:
+  - stylesheets/extra.css
