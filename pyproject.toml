@@ -6,7 +6,7 @@ authors = ["BradHacker <harkerbd@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = "^3.12"
 mkdocs-material = "^9.2.6"
 mkdocs-awesome-pages-plugin = "^2.9.2"
 pillow = "^10.0.0"
