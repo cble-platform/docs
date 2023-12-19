@@ -1,4 +1,4 @@
-# Blueprints
+# Overview
 
 CBLE Blueprints are a custom YAML-based configuration language inspired by [Terraform](https://developer.hashicorp.com/terraform/language/syntax/configuration) and [Docker Compose v3](https://docs.docker.com/compose/compose-file/compose-file-v3/) syntax.
 
