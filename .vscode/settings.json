@@ -1,3 +1,6 @@
 {
-  "cSpell.words": ["CBLE"]
+  "cSpell.words": ["CBLE"],
+  "files.associations": {
+    ".pages": "yaml"
+  }
 }
