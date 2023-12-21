@@ -12,7 +12,7 @@ hide:
 
 The Cloud-Based Lab Emulator (or **CBLE** for short) is designed to be a fully-automated self-service virtual lab environment that is cloud provider agnostic. This means whatever your resources, CBLE can scale to be the solution you need.
 
-[Get Started :material-chevron-right:](./getting-started/introduction.md){ .md-button .md-button--primary }
+[Get Started :material-chevron-right:](./getting-started/quick-start.md){ .md-button .md-button--primary }
 
 ## Project Inspiration
 
