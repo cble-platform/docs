@@ -27,7 +27,7 @@ incoming [registration requests](#registration) wait for registrations. Once one
 with a client to connect to that provider's gRPC server.
 
 <figure markdown>
-  ![gRPC design diagram](grpc_diagram.jpg){ width="90%" }
+  ![gRPC design diagram](grpc_diagram.jpg){ width="100%" }
   <figcaption>CBLE Provider gRPC Design</figcaption>
 </figure>
 
