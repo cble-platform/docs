@@ -1,10 +1,13 @@
 # Providers
 
-Providers in CBLE are the link between CBLE Blueprints and the "real world" (aka. the cloud). CBLE Providers are designed to be standalone binaries which use [gRPC](https://grpc.io/) for inter-process communication (IPC). This IPC is done via a local unix socket and can optionally be secure with TLS (not currently supported).
+Providers in CBLE are the link between CBLE Blueprints and the "real world" (aka. the cloud). CBLE Providers are designed
+to be standalone binaries which use [gRPC](https://grpc.io/) for inter-process communication (IPC). This IPC is done via
+a local unix socket and can optionally be secure with TLS (not currently supported).
 
 !!! note
 
-    As of now, the only officially supported language for providers is [Go](https://go.dev/). This will be expanded in the future with the addition of provider metadata files. You can track the progress of that [here](https://github.com/cble-platform/cble-backend/issues/28).
+    As of now, the only officially supported language for providers is [Go](https://go.dev/). This will be expanded in the
+     future with the addition of provider metadata files. You can track the progress of that [here](https://github.com/cble-platform/cble-backend/issues/28).
 
 ## Supported Providers
 
@@ -12,13 +15,16 @@ A list of official providers is here:
 
 - [cble-platform/provider-openstack](https://github.com/cble-platform/provider-openstack)
 
-You can also provider your own provider if you'd like. See [Writing a Provider](./writing-a-provider.md) section for more information.
+You can also provider your own provider if you'd like. See [Writing a Provider](./writing-a-provider.md) section for more
+information.
 
 ## Behind the Scenes
 
 ### Design
 
-The CBLE server is designed to connect to many different providers at once. In doing so, a main go routine monitoring all incoming [registration requests](#registration) wait for registrations. Once one is received, a new go routine is spawned with a client to connect to that provider's gRPC server.
+The CBLE server is designed to connect to many different providers at once. In doing so, a main go routine monitoring all
+incoming [registration requests](#registration) wait for registrations. Once one is received, a new go routine is spawned
+with a client to connect to that provider's gRPC server.
 
 <figure markdown>
   ![gRPC design diagram](grpc_diagram.jpg){ width="90%" }
@@ -27,7 +33,8 @@ The CBLE server is designed to connect to many different providers at once. In d
 
 ### Loading Providers
 
-To load providers into CBLE, you must provide a Git remote, tag (version), and name for the provider. This will be used to fetch and compile the provider into the provider cache.
+To load providers into CBLE, you must provide a Git remote, tag (version), and name for the provider. This will be used
+to fetch and compile the provider into the provider cache.
 
 The basic flow of loading CBLE providers is as follows:
 
@@ -50,13 +57,16 @@ flowchart
   linkStyle 1,2 color:red;
 ```
 
-This flow is triggered on startup for CBLE for any pre-existing providers in the database and can be triggered manually by calling the `loadProvider` GraphQL mutation.
+This flow is triggered on startup for CBLE for any pre-existing providers in the database and can be triggered manually
+by calling the `loadProvider` GraphQL mutation.
 
 ### Registration
 
-Providers, on startup, will register themselves with the CBLE server in order to establish a peristent gRPC connection. This process also prevents rogue providers from starting up without knowing the provider ID ahead of time.
+Providers, on startup, will register themselves with the CBLE server in order to establish a peristent gRPC connection.
+This process also prevents rogue providers from starting up without knowing the provider ID ahead of time.
 
-After an initial handshake process, the provider will start up its own gRPC server which can be used to provider commands to the provider. This process is as follows:
+After an initial handshake process, the provider will start up its own gRPC server which can be used to provider commands
+to the provider. This process is as follows:
 
 ```mermaid
 sequenceDiagram
@@ -82,13 +92,17 @@ sequenceDiagram
 
 ### Commands
 
-As of now, there are a few pre-defined commands the CBLE server can issue to providers. These are `Configure`, `Deploy`, and `Destroy`.
+As of now, there are a few pre-defined commands the CBLE server can issue to providers. These are `Configure`, `Deploy`,
+and `Destroy`.
 
-These commands are issued via the gRPC provider client for the specified provider. Very rarely will you have to directly interact with these as they are abstracted by GraphQL mutations within the CBLE API.
+These commands are issued via the gRPC provider client for the specified provider. Very rarely will you have to directly
+interact with these as they are abstracted by GraphQL mutations within the CBLE API.
 
 #### `Configure`
 
-This command is used to reload the configuration of a provider without having to restart the provider itself. Configurations are stored within the CBLE database for portability and because of this, this command is executed on each startup of the providers.
+This command is used to reload the configuration of a provider without having to restart the provider itself.
+Configurations are stored within the CBLE database for portability and because of this, this command is executed on each
+startup of the providers.
 
 #### `Deploy`
 
@@ -96,7 +110,8 @@ This command deploys a given blueprint. The deployment state and any variables s
 
 !!! note
 
-    This command will eventually return a gRPC stream in order to provider real-time feedback on deployment progress. You can track the progress of that [here](https://github.com/cble-platform/cble-backend/issues/22).
+    This command will eventually return a gRPC stream in order to provider real-time feedback on deployment progress.
+    You can track the progress of that [here](https://github.com/cble-platform/cble-backend/issues/22).
 
 #### `Destroy`
 
@@ -104,11 +119,15 @@ This command destroys a given deployment. The deployment state and any variables
 
 !!! note
 
-    This command will eventually return a gRPC stream in order to provider real-time feedback on deployment progress. You can track the progress of that [here](https://github.com/cble-platform/cble-backend/issues/22).
+    This command will eventually return a gRPC stream in order to provider real-time feedback on deployment progress.
+    You can track the progress of that [here](https://github.com/cble-platform/cble-backend/issues/22).
 
 ### Unregistration
 
-Unregistration occurs when a provider is ready to shutdown and would like to do so gracefully. Without this, the gRPC clients created by the CBLE server would panic. To accomplish this, the provider will send an unregister request to the CBLE server (using it's gRPC client) and then will gracefully shutdown it's gRPC server, disconnecting all clients in the process.
+Unregistration occurs when a provider is ready to shutdown and would like to do so gracefully. Without this, the gRPC
+clients created by the CBLE server would panic. To accomplish this, the provider will send an unregister request to the
+CBLE server (using it's gRPC client) and then will gracefully shutdown it's gRPC server, disconnecting all clients in
+the process.
 
 ```mermaid
 sequenceDiagram

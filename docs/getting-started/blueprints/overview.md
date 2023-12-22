@@ -1,6 +1,8 @@
 # Blueprints
 
-CBLE Blueprints are a custom YAML-based configuration language inspired by [Terraform](https://developer.hashicorp.com/terraform/language/syntax/configuration) and [Docker Compose v3](https://docs.docker.com/compose/compose-file/compose-file-v3/) syntax.
+CBLE Blueprints are a custom YAML-based configuration language inspired by
+[Terraform](https://developer.hashicorp.com/terraform/language/syntax/configuration) and
+[Docker Compose v3](https://docs.docker.com/compose/compose-file/compose-file-v3/) syntax.
 
 Here is what a basic blueprint looks like:
 
@@ -57,4 +59,6 @@ router1:
 1. This version refers to the version of blueprint syntax. This may change over time.
 2. This is called a **resource type**. Resource types are how CBLE knows what type of resource to deploy for this object.
 3. This is the **resource config**. A config is unique to the type of provider you're using.
-4. `depends_on` is similar to **Docker Compose v3**. This allows us to wait on other objects to deploy _before_ we deploy this object (and destroy this object _before_ we destroy the parents). Providers _should_ provide inherent dependencies based on resource types.
+4. `depends_on` is similar to **Docker Compose v3**. This allows us to wait on other objects to deploy _before_ we
+   deploy this object (and destroy this object _before_ we destroy the parents). Providers _should_ provide inherent
+   dependencies based on resource types.

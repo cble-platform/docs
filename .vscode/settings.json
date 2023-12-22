@@ -1,6 +1,9 @@
 {
-  "cSpell.words": ["CBLE"],
+  "cSpell.words": ["CBLE", "CSEC", "RLES", "Unregistration"],
   "files.associations": {
     ".pages": "yaml"
-  }
+  },
+  "editor.wordWrapColumn": 120,
+  "editor.wordWrap": "wordWrapColumn",
+  "editor.rulers": [120]
 }
