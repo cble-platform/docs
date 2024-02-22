@@ -5,6 +5,7 @@ repo_url: https://github.com/cble-platform
 repo_name: cble-platform
 theme:
   name: material
+  custom_dir: overrides
   icon:
     logo: material/cable-data
     repo: fontawesome/brands/github
@@ -71,3 +72,6 @@ plugins:
   - social
 extra_css:
   - stylesheets/extra.css
+extra:
+  version:
+    provider: mike
