@@ -1,6 +1,6 @@
 # CBLE Documentation
 
-[![Deploy Docs](https://github.com/cble-platform/docs/actions/workflows/deploy-docs.yml/badge.svg)](https://github.com/cble-platform/docs/actions/workflows/deploy-docs.yml)
+[![Build Docs](https://github.com/cble-platform/docs/actions/workflows/build-docs.yml/badge.svg)](https://github.com/cble-platform/docs/actions/workflows/build-docs.yml)
 
 This documentation is built with `mkdocs` and uses [Poetry](https://python-poetry.org/) for dependency management.
 
@@ -15,7 +15,25 @@ To build the site locally, just run `mkdocs build` and the static site will be g
 
 ## Deployment
 
-The site is automatically built and deployed via GitHub actions.
+This site is using versioned documentation with [mike](https://github.com/jimporter/mike).
+
+> ⚠️ To deploy a new version, **merge all changes into `main` first**
+
+```shell
+git switch main
+
+mike deploy -t "x.x (latest)" x.x latest
+
+mike serve
+
+# Check to ensure generated site is good to go
+
+git switch gh-pages
+
+git push
+
+git switch main
+```
 
 ## Development
 
