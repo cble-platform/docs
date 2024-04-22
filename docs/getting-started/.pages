@@ -1,5 +1,6 @@
 nav:
-  - Quick Start: quick-start.md
+  - quick-start.md
+  - manual-install.md
   - providers
   - blueprints
   - ...
