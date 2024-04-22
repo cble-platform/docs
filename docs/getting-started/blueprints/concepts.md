@@ -4,8 +4,8 @@ There are a few key concepts to understand when working with CBLE blueprints:
 
 ## Resources
 
-A resource represents _something_ which would be deployed in the cloud. This might be a server, a database, a load balancer,
-a router, anything you can deploy in the cloud (which CBLE supports; see [Providers](#)).
+A resource represents something which _could be deployed_ in the cloud. This might be a server, a database, a load balancer,
+a router, anything you can deploy in the cloud (with provider support).
 
 Let's use this resource as an example:
 
@@ -35,4 +35,21 @@ There is a lot to unpack here, but let's unpack line-by-line:
    will not be deployed until all `depends_on` resources are successful. This resource will be destroyed before any `depends_on`
    resources are destroyed
 
-For more information on the resource configs, please refer to the [provider documentation](#).
+For more information on resource configs for a provider, please refer to the [provider's documentation](../providers/overview.md#supported-providers).
+
+## Data Source
+
+A data source represents something which _is already deployed_ in the cloud. This might be a server, a database, a load balancer,
+a router, anything you can deploy in the cloud (with provider support).
+
+Let's use this data source as an example:
+
+```yaml title="Example data source"
+main_nat:
+  data: openstack.v1.network
+  config:
+    name: MAIN-NAT
+```
+
+While this looks similar to a resource, instead of using the `config` block to deploy and configure a resource, the provider
+will look up an existing resource in the attached cloud environment which matches this config.

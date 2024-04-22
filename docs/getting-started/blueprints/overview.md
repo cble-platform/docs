@@ -20,22 +20,26 @@ host1:
       network1:
         dhcp: false
         ip: 10.10.0.1
-  depends_on: # (4)!
-    - router1
+    depends_on: # (4)!
+      - router1
+
+main_nat:
+  data: openstack.v1.network # (5)!
+  config:
+    name: MAIN-NAT
 
 host2:
   resource: openstack.v1.host
   config:
-    hostname: host2
+    hostname: "{{ .Host2Hostname }}"
     image: UbuntuJammy2204-Desktop
     flavor: medium
     disk_size: 25
     networks:
-      network1:
+      main_nat:
         dhcp: true
-  depends_on:
-    - host1
-    - router1
+    depends_on:
+      - host1
 
 network1:
   resource: openstack.v1.network
@@ -49,7 +53,7 @@ network1:
 router1:
   resource: openstack.v1.router
   config:
-    external_network: MAIN-NAT
+    external_network: main_nat
     networks:
       network1:
         dhcp: false
@@ -62,3 +66,5 @@ router1:
 4. `depends_on` is similar to **Docker Compose v3**. This allows us to wait on other objects to deploy _before_ we
    deploy this object (and destroy this object _before_ we destroy the parents). Providers _should_ provide inherent
    dependencies based on resource types.
+5. This is called a **data type**. Data types are similar to resource types, but instead of deploying resources they
+   pull pre-existing resources and information from the provider without modification.
