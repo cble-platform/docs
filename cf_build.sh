@@ -7,6 +7,6 @@ if [ "$CF_PAGES_BRANCH" == "gh-pages" ]; then
   mkdir site/
   ls | grep -v "site" | xargs -n1 mv -t site
 else
-  # Else run mkdocs build to compile
-  mkdocs build
+  # Else run mkdocs build to compile in Poetry venv
+  poetry run mkdocs build
 fi
