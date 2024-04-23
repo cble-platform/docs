@@ -23,7 +23,7 @@ would look something like `https://docs.cble.io`.
     to set up your DNS `A/AAAA` records to point to the CBLE server.
 
 First, edit the `config.local.yaml` file (see
-[Config File Reference](../references/configuration/config-file.md) for more options):
+[Config File Reference](../references/config-file.md) for more options):
 
 ```yaml title="config.local.yaml"
 # ...
