@@ -9,10 +9,50 @@
 Use the auto-installer to download CBLE and its prerequisites:
 
 ```shell
-curl -fsSL https://get.cble.io | sh
+. <(curl -fsSL https://get.cble.io)
 ```
 
+!!! warning "Shell Support"
+
+    The auto installer has only been tested with the **zsh** and **bash** shells
+
 ## Configure
+
+### Auto-Configuration (Recommended)
+
+Follow the automatic installer prompts to automatically configure CBLE:
+
+```shell
+Installing Docker...
+# Executing docker install script, commit: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+# ... docker install output ...
+
+Cloning into 'cble'...
+# ... git output ...
+Would you like to perform auto-configuration of CBLE? [Y/n] Y
+Are you using SSL (requires DNS to be set up)? [Y/n] Y
+What is the domain (FQDN) you plan to use (e.g. cble.io): <your fqdn>
+Would you like to generate random passwords/keys? [Y/n] Y
+Default admin account username [cble]: cble
+Default admin account first name [CBLE]: CBLE
+Default admin account last name [Admin]: Admin
+
+CBLE has been installed and auto-configured!
+
+Once ready, start CBLE with:
+
+    cd cble
+    docker compose -f docker-compose.local.yml build
+    docker compose -f docker-compose.local.yml up -d
+
+Then log in with the following credentials:
+
+    Name: CBLE Admin
+    Username: cble
+    Password: <random password>
+```
+
+### Manual-Configuration
 
 For these next steps you'll need to know the Fully Qualified Domain Name (FQDN) of the deployment. This
 would look something like `https://docs.cble.io`.
@@ -28,16 +68,16 @@ First, edit the `config.local.yaml` file (see
 ```yaml title="config.local.yaml"
 # ...
 server:
-  hostname: localhost
+  hostname: <your fqdn>
   # ...
-  ssl: false
+  ssl: true # enable this to auto-provision a TLS certificate
   # ...
   origins:
     - https://<your fqdn> # put your FQDN here
 # ...
 database:
   # ...
-  password: cb<secure password>le # set this to a secure password for the database
+  password: <secure password> # set this to a secure password for the database
 # ...
 auth:
   jwt_key: <random jwt key> # generate a random value here
