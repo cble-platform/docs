@@ -1,5 +1,6 @@
 nav:
   - installation.md
+  - quick-intro.md
   - Behind the Scenes:
       - providers
       - blueprints

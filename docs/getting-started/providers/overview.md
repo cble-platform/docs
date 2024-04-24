@@ -8,7 +8,7 @@ a local unix socket and can optionally be secure with TLS (not currently support
 
 A list of official providers is here:
 
-- [cble-platform/provider-openstack](https://github.com/cble-platform/provider-openstack)
+- [cble-platform/provider-openstack](https://github.com/cble-platform/provider-openstack) (`https://github.com/cble-platform/provider-openstack`)
 
 You can also provider your own provider if you'd like. See [Writing a Provider](./writing-a-provider.md) section for more
 information.
