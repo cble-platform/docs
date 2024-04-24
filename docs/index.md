@@ -13,9 +13,10 @@ hide:
 
     ---
 
-    Use the [auto-installer](./getting-started/quick-start.md#install) to get up and running in minutes
+    Use the [auto-installer](./getting-started/installation.md#automatic-installation-recommended) to get up and running
+    in minutes
 
-    [:octicons-arrow-right-24: Getting started](./getting-started/quick-start.md)
+    [:octicons-arrow-right-24: Getting started](./getting-started/installation.md)
 
 -   :simple-yaml:{ .lg .middle } __Configure with just YAML__
 
@@ -34,11 +35,6 @@ hide:
     [:octicons-arrow-right-24: Providers](./getting-started/providers/overview.md)
 
 </div>
-
-<!-- The Cloud-Based Lab Emulator (or __CBLE__ for short) is designed to be a fully-automated self-service virtual lab
-environment that is cloud provider agnostic. This means whatever your resources, CBLE can scale to be the solution you need.
-
-[Get Started :material-chevron-right:](./getting-started/quick-start.md){ .md-button .md-button--primary } -->
 
 ## Project Inspiration
 

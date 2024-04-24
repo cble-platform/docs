@@ -1,10 +1,10 @@
-# Quick Start
+# Installation
 
 !!! info "Base OS Selection"
 
     This deployment has only been tested on **Fedora 38/39** and **Ubuntu 22.04**
 
-## Install
+## Automatic Installation (Recommended)
 
 Use the auto-installer to download CBLE and its prerequisites:
 
@@ -15,10 +15,6 @@ Use the auto-installer to download CBLE and its prerequisites:
 !!! warning "Shell Support"
 
     The auto installer has only been tested with the **zsh** and **bash** shells
-
-## Configure
-
-### Auto-Configuration (Recommended)
 
 Follow the automatic installer prompts to automatically configure CBLE:
 
@@ -52,7 +48,53 @@ Then log in with the following credentials:
     Password: <random password>
 ```
 
-### Manual-Configuration
+Now run CBLE with:
+
+```shell
+cd cble
+docker compose -f docker-compose.local.yml build
+docker compose -f docker-compose.local.yml up -d
+```
+
+## Manual Installation
+
+### Installation Methods
+
+#### Docker (Recommended)
+
+Install [Docker](https://docker.com) with:
+
+```shell
+curl -fsSL https://get.docker.com/ | sh
+```
+
+Clone the CBLE repository:
+
+```shell
+git clone https://github.com/cble-platform/cble
+```
+
+Move into the deploy directory and create local configuration files from the provided examples:
+
+```shell
+cd cble
+cp config.example.yaml config.local.yaml
+cp Caddyfile.example Caddyfile
+cp docker-compose.yml docker-compose.local.yml
+```
+
+To start CBLE, first build the container images and the run the containers:
+
+```shell
+docker compose -f docker-compose.local.yml build
+docker compose -f docker-compose.local.yml up -d
+```
+
+#### System-wide
+
+Coming soon.
+
+### Configuration
 
 For these next steps you'll need to know the Fully Qualified Domain Name (FQDN) of the deployment. This
 would look something like `https://docs.cble.io`.
@@ -118,19 +160,10 @@ services:
       # ...
 ```
 
-## Deploy
+## Login to CBLE
 
-Build the container images locally:
+You can now visit the CBLE dashboard at `https://<your fqdn>`. You should be greeted with the login page:
 
-```shell
-docker compose -f docker-compose.local.yml build
-```
+![Login Page](./login-fs8.png){ loading=lazy }
 
-Finally, run CBLE in the background (may take a minute on first boot):
-
-```shell
-docker compose -f docker-compose.local.yml up -d
-```
-
-You can now visit the CBLE dashboard at `https://<your fqdn>` and log in with the username `cble` and the
-secure password you created in `config.local.yaml`.
+Log in with the username and password you created during configuration.

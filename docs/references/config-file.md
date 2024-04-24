@@ -2,8 +2,8 @@
 
 !!! note
 
-    All defaults are pulled from the `config.example.yaml` file and only support a local deployment. For production
-    environments see [Getting Started - Quick Start](../getting-started/quick-start.md).
+    All defaults are pulled from the `config.example.yaml` file. For instructions on configuring production environments
+    see [Installation - Configuration](../getting-started/installation.md#configuration).
 
 ## Global Options
 

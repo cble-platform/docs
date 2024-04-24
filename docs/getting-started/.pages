@@ -1,6 +1,6 @@
 nav:
-  - quick-start.md
-  - manual-install.md
-  - providers
-  - blueprints
+  - installation.md
+  - Behind the Scenes:
+      - providers
+      - blueprints
   - ...
