@@ -1,6 +1,10 @@
 // Max rotation
 const MAX_ROTATION = 20;
 
+function is_touch_enabled() {
+  return "ontouchstart" in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
+}
+
 // Integrate with mkdocs instant loading
 document$.subscribe(function () {
   // Check light/dark mode
@@ -20,7 +24,7 @@ document$.subscribe(function () {
 
   heroContainer.onmousemove = (e) => {
     // Only run animation on large devices
-    if (window.innerWidth < 1220) return;
+    if (window.innerWidth < 1220 || is_touch_enabled()) return;
 
     let x = e.pageX;
     let y = e.pageY;
