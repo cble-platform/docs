@@ -1,0 +1,43 @@
+{% extends "main.html" %} {% block tabs %} {{ super() }}
+<style>
+  .md-main__inner {
+    margin: 0 auto;
+  }
+  .md-content {
+    width: 100%;
+  }
+  @media screen and (min-width: 60em) {
+    .md-sidebar--secondary {
+      display: none;
+    }
+  }
+  @media screen and (min-width: 76.25em) {
+    .md-sidebar--primary {
+      display: none;
+    }
+  }
+</style>
+<section class="cble-container" id="cble-hero-container">
+  <div class="md-grid md-typeset">
+    <div class="cble-hero">
+      <div class="cble-hero__image">
+        <img id="cble-hero-image-default" src="assets/images/cble_nodes_light.png#only-light" alt="" draggable="false" />
+        <img id="cble-hero-image-slate" src="assets/images/cble_nodes_dark.png#only-dark" alt="" draggable="false" />
+      </div>
+      <div class="cble-hero__content">
+        <h1>Cloud-Based Lab Emulator (CBLE)</h1>
+        <p>{{ config.site_description }} Set up in 10 minutes.</p>
+        <a href="{{ page.next_page.url | url }}" title="{{ page.next_page.title | e }}" class="md-button md-button--primary">
+          Quick start <span class="twemoji">{% include ".icons/material/chevron-right.svg" %}</span>
+        </a>
+        <!-- <a href="{{ 'insiders/' | url }}" title="Material for MkDocs Insiders" class="md-button"> Get Insiders </a> -->
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %} {% block content %} {{ super() }} {% endblock %} {% block footer %} {{ super() }} {% endblock %} {% block scripts %}
+<!-- Add scripts that need to run before here -->
+{{ super() }}
+<!-- Add scripts that need to run afterwards here -->
+<script src="{{ 'assets/javascripts/hero.js' | url }}" />
+{% endblock %}

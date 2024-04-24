@@ -1,8 +1,11 @@
-site_name: CBLE Docs
-site_url: https://cble-platform.github.io/docs/
-site_description: Full platform documentation for the Cloud-Based Lab Emulator (CBLE)
+site_name: Cloud-Based Lab Emulator (CBLE)
+site_url: https://docs.cble.io/
+site_description: Cloud-Based Lab Emulator (CBLE) is a provider-agnostic automated self-service virtual lab platform.
 repo_url: https://github.com/cble-platform
 repo_name: cble-platform
+copyright: >
+  Copyright &copy; 2024 - Bradley Harker -
+  <a href="#__consent">Change cookie settings</a>
 theme:
   name: material
   custom_dir: overrides
@@ -29,7 +32,7 @@ theme:
 
     # Palette toggle for dark mode
     - media: "(prefers-color-scheme: dark)"
-      primary: black
+      primary: teal
       accent: cyan
       scheme: slate
       toggle:
@@ -79,3 +82,31 @@ extra_css:
 extra:
   version:
     provider: mike
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/cble-platform
+  analytics:
+    provider: google
+    property: G-M8Q262RM03
+    feedback:
+      title: Was this page helpful?
+      ratings:
+        - icon: material/emoticon-happy-outline
+          name: This page was helpful
+          data: 1
+          note: >-
+            Thanks for your feedback!
+        - icon: material/emoticon-sad-outline
+          name: This page could be improved
+          data: 0
+          note: >-
+            Thanks for your feedback!
+  consent:
+    title: Cookie consent
+    description: >-
+      We use cookies to recognize your repeated visits and preferences, as well
+      as to measure the effectiveness of our documentation and whether users
+      find what they're searching for. With your consent, you're helping us to
+      make our documentation better.
+watch:
+  - overrides
