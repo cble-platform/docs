@@ -1,8 +1,9 @@
 site_name: Cloud-Based Lab Emulator (CBLE)
 site_url: https://docs.cble.io/
 site_description: Cloud-Based Lab Emulator (CBLE) is a provider-agnostic automated self-service virtual lab platform.
-repo_url: https://github.com/cble-platform
-repo_name: cble-platform
+repo_url: https://github.com/cble-platform/cble
+repo_name: cble-platform/cble
+edit_uri: https://github.com/cble-platform/docs/blob/main/
 copyright: >
   Copyright &copy; 2024 - Bradley Harker -
   <a href="#__consent">Change cookie settings</a>
@@ -51,6 +52,8 @@ theme:
     - search.suggest
     - content.code.copy
     - content.code.annotate
+    - content.action.view
+    - content.action.edit
 markdown_extensions:
   - admonition
   - pymdownx.details
@@ -77,7 +80,14 @@ plugins:
   - social
   - mike:
       canonical_version: latest
-  - glightbox
+  - glightbox:
+      background: none
+  - git-revision-date-localized:
+      enable_creation_date: true
+      fallback_to_build_date: true
+  - git-committers:
+      repository: cble-platform/docs
+      branch: main
 extra_css:
   - stylesheets/extra.css
 extra:
