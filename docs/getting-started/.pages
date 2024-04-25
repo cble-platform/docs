@@ -1,5 +1,8 @@
 nav:
-  - Quick Start: quick-start.md
-  - providers
-  - blueprints
+  - installation.md
+  - quick-intro.md
+  - Behind the Scenes:
+      - providers
+      - blueprints
+      - projects
   - ...

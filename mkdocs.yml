@@ -1,8 +1,12 @@
-site_name: CBLE Docs
-site_url: https://cble-platform.github.io/docs/
-site_description: Full platform documentation for the Cloud-Based Lab Emulator (CBLE)
-repo_url: https://github.com/cble-platform
-repo_name: cble-platform
+site_name: Cloud-Based Lab Emulator (CBLE)
+site_url: https://docs.cble.io/
+site_description: Cloud-Based Lab Emulator (CBLE) is a provider-agnostic automated self-service virtual lab platform.
+repo_url: https://github.com/cble-platform/cble
+repo_name: cble-platform/cble
+edit_uri: https://github.com/cble-platform/docs/blob/main/
+copyright: >
+  Copyright &copy; 2024 - Bradley Harker -
+  <a href="#__consent">Change cookie settings</a>
 theme:
   name: material
   custom_dir: overrides
@@ -29,7 +33,7 @@ theme:
 
     # Palette toggle for dark mode
     - media: "(prefers-color-scheme: dark)"
-      primary: black
+      primary: teal
       accent: cyan
       scheme: slate
       toggle:
@@ -37,6 +41,7 @@ theme:
         name: Switch to system preference
   features:
     - navigation.instant
+    - navigation.instant.progress
     - navigation.tracking
     - navigation.tabs
     - navigation.top
@@ -47,6 +52,8 @@ theme:
     - search.suggest
     - content.code.copy
     - content.code.annotate
+    - content.action.view
+    - content.action.edit
 markdown_extensions:
   - admonition
   - pymdownx.details
@@ -66,14 +73,51 @@ markdown_extensions:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - md_in_html
+  - tables
 plugins:
   - search
   - awesome-pages
   - social
   - mike:
       canonical_version: latest
+  - glightbox:
+      background: none
+  - git-revision-date-localized:
+      enable_creation_date: true
+      fallback_to_build_date: true
+  - git-committers:
+      repository: cble-platform/docs
+      branch: main
 extra_css:
   - stylesheets/extra.css
 extra:
   version:
     provider: mike
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/cble-platform
+  analytics:
+    provider: google
+    property: G-M8Q262RM03
+    feedback:
+      title: Was this page helpful?
+      ratings:
+        - icon: material/emoticon-happy-outline
+          name: This page was helpful
+          data: 1
+          note: >-
+            Thanks for your feedback!
+        - icon: material/emoticon-sad-outline
+          name: This page could be improved
+          data: 0
+          note: >-
+            Thanks for your feedback!
+  consent:
+    title: Cookie consent
+    description: >-
+      We use cookies to recognize your repeated visits and preferences, as well
+      as to measure the effectiveness of our documentation and whether users
+      find what they're searching for. With your consent, you're helping us to
+      make our documentation better.
+watch:
+  - overrides
